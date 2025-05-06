@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="CTR.HTML" content="width=device-width, initial-scale=1.0">
+    
+    <title>CTR-калькулятор</title>
+    <link rel="stylesheet" href="центровка.css">
+    <style>
+        
+        input, button {
+            font-size: 20px;
+            padding: 10px;
+        }
+        .result {
+            font-size: 24px;
+        }
+    </style>
+
+</head>
+<body>
+
+<!--Текст с формулой-->
+    <h1> Расчет CTR </h1>
+<p> <b>CTR (Click-through rate) </b> - кликабельность. Метрика указывает на то, насколько реклама приклекательна для клиентов, тоесть насколько часто на нее кликают. Расчитывется так:</p>
+
+<p ><b><em>(Клики / Показы) * 100% </em> </b> </p>
+<!--Текст с формулой-->
+
+<!--Косметика для калькулятора-->
+    <div class="Calk"><h2>🎯 Расчет CTR</h2>
+        <label>Клики:</label><br>
+        <input type="number" id="clicks"><br>
+        <label>Показы:</label><br>
+        <input type="number" id="impressions"><br>
+        <button class="Calk" onclick="calculateCTR()">Вычислить CTR</button>
+        <div class="result" id="ctrResult"></div>
+
+<!--Косметика для калькулятора-->
+
+<!--Калькулятор-->
+
+<script>
+ function calculateCTR() {
+        const clicks = parseFloat(document.getElementById("clicks").value);
+        const impressions = parseFloat(document.getElementById("impressions").value);
+        if (isNaN(clicks) || isNaN(impressions) || impressions === 0) {
+          document.getElementById("ctrResult").textContent = "Введите корректные значения.";
+          return;
+        }
+        const ctr = (clicks / impressions) * 100;
+        document.getElementById("ctrResult").textContent = "CTR: " + ctr.toFixed(2) + "%";
+      }
+</script>
+    </div>
+
+<!--Калькулятор-->
+
+<div class="Lor">
+    <a href="Метрики.html">
+        <button type="button" class="Calk" >Назад</button>
+        </a>
+</div>
+
+    
+</body>
+</html>

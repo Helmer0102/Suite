@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="CPA.HTML" content="width=device-width, initial-scale=1.0">
+    <title>CPA-калькулятор</title>
+    <link rel="stylesheet" href="центровка.css">
+    <style>
+        input, button {
+            font-size: 20px;
+            padding: 10px;
+        }
+        .result {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <!--Текст с формулой-->
+    <h1> Расчет CPA</h1>
+    <p> <b>CPA (Cost per action) </b> - Цена, которую компания платит за целевое действие: заявка, покупка. Расчитывется так:</p>
+   
+    <p ><b><em>(Общие траты / Кол. целевых действий) </em> </b> </p>
+<!--Текст с формулой-->
+
+<div class="Calk"><h2>💰 Расчет CPA</h2>
+    <label>Общие расходы:</label><br>
+    <input type="number" id="totalCost"><br>
+    <label>Количество целевых действий:</label><br>
+    <input type="number" id="conversions"><br>
+    <button class="Calk" onclick="calculateCPA()">Вычислить CPA</button>
+    <div class="result" id="cpaResult"></div>
+
+    <script>
+         function calculateCPA() {
+      const totalCost = parseFloat(document.getElementById("totalCost").value);
+      const conversions = parseFloat(document.getElementById("conversions").value);
+      if (isNaN(totalCost) || isNaN(conversions) || conversions === 0) {
+        document.getElementById("cpaResult").textContent = "Введите корректные значения.";
+        return;
+      }
+      const cpa = totalCost / conversions;
+      document.getElementById("cpaResult").textContent = "CPA: " + cpa.toFixed(2) + " грн";
+    }
+    </script>
+</div>
+<div class="Lor">
+    <a href="Метрики.html">
+        <button type="button" class="Calk" >Назад</button>
+        </a>
+</div>
+</body>
+</html>
